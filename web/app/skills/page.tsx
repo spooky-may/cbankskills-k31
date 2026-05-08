@@ -11,6 +11,9 @@ export default function SkillsPage() {
       <div className="mb-12">
         <div className="flex items-start justify-between gap-4 flex-wrap">
           <div>
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--accent)", marginBottom: 10 }}>
+              {totalSkills} skills · 7 verticals
+            </div>
             <h1 className="font-serif text-4xl font-normal text-text mb-2" style={{ letterSpacing: "-0.02em" }}>All Skills</h1>
             <p className="text-text-muted text-lg max-w-2xl font-light">
               {totalSkills} production-ready skills across 7 financial services verticals.

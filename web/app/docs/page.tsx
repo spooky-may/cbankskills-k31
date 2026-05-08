@@ -8,6 +8,9 @@ export default function DocsPage() {
     <div className="max-w-4xl mx-auto px-6 py-16">
       {/* Header */}
       <div className="mb-12">
+        <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--accent)", marginBottom: 12 }}>
+          Quick start · No code required
+        </div>
         <h1 className="font-serif text-5xl font-normal text-text mb-3" style={{ letterSpacing: "-0.02em" }}>Getting Started</h1>
         <p className="text-text-muted text-xl max-w-2xl leading-relaxed font-light">
           How to download a skill and add it to Claude in under 5 minutes.
@@ -40,7 +43,10 @@ export default function DocsPage() {
 
       {/* Step-by-step */}
       <section id="install" className="mb-16">
-        <h2 className="font-serif text-3xl font-normal text-text mb-8" style={{ letterSpacing: "-0.02em" }}>Install a skill — step by step</h2>
+        <h2 className="font-serif text-3xl font-normal text-text mb-8" style={{ letterSpacing: "-0.02em" }}>
+          Install a skill —{" "}
+          <span style={{ color: "var(--text-fade)" }}>step by step</span>
+        </h2>
 
         <div className="flex flex-col gap-8">
           {/* Step 1 */}
@@ -181,7 +187,10 @@ export default function DocsPage() {
 
       {/* Install order */}
       <section className="mb-16">
-        <h2 className="font-serif text-3xl font-normal text-text mb-4" style={{ letterSpacing: "-0.02em" }}>Recommended install order</h2>
+        <h2 className="font-serif text-3xl font-normal text-text mb-4" style={{ letterSpacing: "-0.02em" }}>
+          Recommended{" "}
+          <span style={{ color: "var(--text-fade)" }}>install order</span>
+        </h2>
         <p className="text-text-muted text-sm mb-6">
           Most verticals depend on{" "}
           <Link href="/skills/financial-analysis" className="text-primary hover:underline">

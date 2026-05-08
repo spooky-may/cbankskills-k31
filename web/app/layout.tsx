@@ -6,6 +6,7 @@ import { ViewTransitions } from "next-view-transitions";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         className={`${GeistSans.variable} ${GeistMono.variable} ${instrumentSerif.variable}`}
       >
         <body>
+          <SmoothScroll />
           <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
             <Header />
             <main style={{ flex: 1 }}>{children}</main>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Marquee from "@/components/Marquee";
+import { verticals } from "@/content/verticals";
 
 export const metadata: Metadata = {
   title: "CBANK — AI Infrastructure for Financial Services",
@@ -31,6 +32,7 @@ export default function HomePage() {
     <>
       {/* ── HERO ─────────────────────────────────────────────── */}
       <section
+        className="hero-bg"
         style={{
           position: "relative",
           minHeight: 480,
@@ -40,22 +42,12 @@ export default function HomePage() {
           padding: "80px 48px",
         }}
       >
-        {/* Diamond crosshatch grid */}
+        {/* Radial fade — softens grid near left content */}
         <div
           style={{
-            position: "absolute", inset: 0,
-            backgroundColor: "#FFFFFF",
-            backgroundImage:
-              "linear-gradient(45deg, rgba(46,139,87,0.09) 1px, transparent 1px), " +
-              "linear-gradient(-45deg, rgba(46,139,87,0.09) 1px, transparent 1px)",
-            backgroundSize: "36px 36px",
+            position: "absolute",
+            top: 0, right: 0, bottom: 0, left: 0,
             pointerEvents: "none",
-          }}
-        />
-        {/* Radial fade — masks grid near left content */}
-        <div
-          style={{
-            position: "absolute", inset: 0, pointerEvents: "none",
             background:
               "radial-gradient(ellipse 65% 80% at 28% 50%, " +
               "rgba(255,255,255,0.97) 0%, " +
@@ -78,7 +70,7 @@ export default function HomePage() {
               marginBottom: 22,
             }}
           >
-            <span style={{ color: "var(--text)", display: "block" }}>AI infrastructure for</span>
+            <span style={{ color: "var(--text)", display: "block" }}>The Claude skill layer for</span>
             <span style={{ color: "var(--text-fade)", display: "block" }}>financial services</span>
           </h1>
           <p
@@ -325,6 +317,78 @@ export default function HomePage() {
               <div style={{ fontSize: 11, color: "rgba(13,31,20,0.45)", lineHeight: 1.55, fontWeight: 300 }}>
                 {s.desc}
               </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      {/* ── THREE STEPS ─────────────────────────────────────── */}
+      <div style={{ background: "var(--s1)", borderTop: "1px solid var(--b0)", padding: "56px 48px" }}>
+        <div className="anim" style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--accent)", marginBottom: 12 }}>
+          How it works
+        </div>
+        <h2 className="anim anim-d1" style={{ fontFamily: "var(--font-sans)", fontSize: "clamp(24px, 3.5vw, 36px)", fontWeight: 700, letterSpacing: "-0.03em", lineHeight: 1.1, color: "var(--text)", marginBottom: 44 }}>
+          Three steps.{" "}
+          <span style={{ color: "var(--text-fade)" }}>No setup.</span>
+        </h2>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 32 }}>
+          {[
+            { n: "01", title: "Choose a vertical", desc: "Browse 7 financial verticals and 55 production skills. Pick exactly what your desk needs — nothing more." },
+            { n: "02", title: "Install the skill", desc: "Download the ZIP from GitHub. Upload to claude.ai/customize/skills. Active in under 2 minutes, no code required." },
+            { n: "03", title: "Run the command", desc: "Type /dcf, /cim-builder, /ic-memo — or any of the 55 slash commands — in Claude and attach your files." },
+          ].map((step, i) => (
+            <div key={step.n} className={`anim anim-d${i + 1}`}>
+              <div style={{ fontFamily: "var(--font-mono)", fontSize: 34, fontWeight: 800, color: "var(--accent)", lineHeight: 1, marginBottom: 16, letterSpacing: "-0.04em" }}>
+                {step.n}
+              </div>
+              <div style={{ fontSize: 14, fontWeight: 600, color: "var(--text)", marginBottom: 8, letterSpacing: "-0.01em" }}>
+                {step.title}
+              </div>
+              <div style={{ fontSize: 12, color: "rgba(13,31,20,0.45)", lineHeight: 1.7, fontWeight: 300 }}>
+                {step.desc}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ── VERTICALS GRID ───────────────────────────────────── */}
+      <div style={{ padding: "56px 48px", background: "var(--bg)", borderTop: "1px solid var(--b0)" }}>
+        <div className="anim" style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--accent)", marginBottom: 12 }}>
+          All verticals
+        </div>
+        <h2 className="anim anim-d1" style={{ fontFamily: "var(--font-sans)", fontSize: "clamp(24px, 3.5vw, 36px)", fontWeight: 700, letterSpacing: "-0.03em", lineHeight: 1.1, color: "var(--text)", marginBottom: 10 }}>
+          Install only what{" "}
+          <span style={{ color: "var(--text-fade)" }}>your team needs</span>
+        </h2>
+        <p className="anim anim-d2" style={{ fontSize: 13, color: "rgba(13,31,20,0.45)", maxWidth: 420, lineHeight: 1.65, fontWeight: 300, marginBottom: 32 }}>
+          Each vertical is a self-contained plugin — install one skill, one vertical, or all seven.
+        </p>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 2 }}>
+          {verticals.map((v, i) => (
+            <Link
+              key={v.slug}
+              href={`/skills/${v.slug}`}
+              className={`skill-card anim anim-d${(i % 3) + 1}`}
+              style={{ background: "var(--s1)", border: "1px solid var(--b0)", borderRadius: 12, padding: 22, textDecoration: "none", display: "block" }}
+            >
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
+                <span style={{ fontFamily: "var(--font-mono)", fontSize: 9, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--text-muted)", background: "var(--s3)", padding: "3px 8px", borderRadius: 4 }}>
+                  {v.skills.length} skills
+                </span>
+                <span style={{ fontFamily: "var(--font-mono)", fontSize: 9, color: "var(--text-faint)", letterSpacing: "0.04em" }}>
+                  v{v.version}
+                </span>
+              </div>
+              <div style={{ fontSize: 14, fontWeight: 700, color: "var(--text)", marginBottom: 5, letterSpacing: "-0.02em" }}>
+                {v.title}
+              </div>
+              <div style={{ fontSize: 11, color: "rgba(13,31,20,0.45)", lineHeight: 1.55, marginBottom: 14, fontWeight: 300 }}>
+                {v.tagline}
+              </div>
+              <code style={{ fontFamily: "var(--font-mono)", fontSize: 9, color: "var(--accent)", background: "var(--accent-dim)", padding: "4px 8px", borderRadius: 4, display: "inline-block", letterSpacing: "0.02em" }}>
+                {v.installCommand}
+              </code>
             </Link>
           ))}
         </div>
