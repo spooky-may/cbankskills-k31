@@ -75,7 +75,7 @@ export default function Header() {
         {[
           { label: "Skills",      href: "/skills" },
           { label: "Verticals",   href: "/skills" },
-          { label: "Developers",  href: "/docs" },
+          { label: "Docs",        href: "/docs" },
         ].map((item) => (
           <Link
             key={item.href + item.label}
