@@ -52,9 +52,9 @@ export default function Header() {
   return (
     <header
       style={{
-        display: "flex",
+        display: "grid",
+        gridTemplateColumns: "1fr auto 1fr",
         alignItems: "center",
-        justifyContent: "space-between",
         padding: "0 48px",
         height: 60,
         background: "rgba(255,255,255,0.92)",
@@ -247,8 +247,8 @@ export default function Header() {
 
       </nav>
 
-      {/* Social icons */}
-      <div style={{ display: "flex", alignItems: "center", gap: 2, marginRight: 8 }}>
+      {/* CTAs + social icons */}
+      <div style={{ display: "flex", alignItems: "center", gap: 8, justifyContent: "flex-end" }}>
         <a
           href="https://github.com/x-cookie/cbankskills-k44"
           target="_blank"
@@ -273,10 +273,7 @@ export default function Header() {
             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.736-8.84L1.254 2.25H8.08l4.264 5.639L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
           </svg>
         </a>
-      </div>
-
-      {/* CTAs */}
-      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+        <div style={{ width: 1, height: 18, background: "var(--b0)", margin: "0 2px" }} />
         <Link
           href="/skills"
           className="btn-outline"
